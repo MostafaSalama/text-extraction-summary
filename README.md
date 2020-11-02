@@ -1,3 +1,5 @@
 # text-extraction-summary
 
-add descripition later
+Summarize pdf and Docx files and extract entities from them.
+
+TODO : update README.md to include documentation
