@@ -4,14 +4,14 @@ async function uploadNewFile(request, response) {
 		await uploadFile(request, response);
 
 		if (!request.file) {
-			return response.status(400).send({ message: 'Please upload a file!' });
+			return response.status(400).send({ message: 'Please upload the correct file format' });
 		}
-		console.log(request.file)
 		response.status(200).send({
 			message: 'Uploaded the file successfully: ' + request.file.originalname,
 		});
 	} catch (e) {
-		response.json(e)
+		response.status(500);
+		response.json({error:e})
 	}
 }
 
