@@ -1,5 +1,6 @@
 const uploadFile = require('../middleware/upload');
-const { summarizeFile } = require('../service');
+const { summarizeFile,getEntities } = require('../service');
+const {normalizeEntities} = require('../util')
 async function uploadNewFile(request, response) {
 	try {
 		await uploadFile(request, response);
@@ -16,7 +17,9 @@ async function uploadNewFile(request, response) {
 				message: data.msg,
 			});
 		}
-		response.json({ summary: data.summary });
+		const entities = await getEntities(request.file.path) ;
+		const normalizedEntities = normalizeEntities(entities);
+		response.json({ summary: data.summary,entities:normalizedEntities });
 	} catch (e) {
 		response.status(500);
 		response.json({ error: e.message });
