@@ -3,7 +3,7 @@ const path = require('path');
 const multer = require('multer');
 const { resourcesPath } = require('../config');
 
-const maxSize = 0.2 * 1024 * 1024;
+const maxSize = 3 * 10 * 1024 * 1024;
 
 const storage = multer.diskStorage({
 	destination: resourcesPath,
