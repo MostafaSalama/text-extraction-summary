@@ -6,8 +6,9 @@ import PropTypes from 'prop-types' ;
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 const SummaryContainer = ({summary})=>{
     return (
-        <Accordion>
-            <AccordionSummary>
+        <Accordion
+        >
+            <AccordionSummary expandIcon={'>'}>
                 <Typography>Summary</Typography>
             </AccordionSummary>
             <AccordionDetails>
