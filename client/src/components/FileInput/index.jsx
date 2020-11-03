@@ -16,7 +16,7 @@ const FileUpload = ({ onFileChange }) => {
 					onChange={onFileChange}
 				/>
 				<label htmlFor="file-input">
-					<Button variant="contained" color="primary" component="span">
+					<Button variant="outlined" color="primary" component="span">
 						Add File
 					</Button>
 				</label>
