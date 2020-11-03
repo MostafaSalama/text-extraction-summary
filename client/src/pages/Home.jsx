@@ -8,10 +8,13 @@ import upload from '../services/FileUploadService';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import styles from './Home.module.css';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import SummaryContainer from "../components/SummaryContainer";
+import EntityList from "../components/EntityList";
 const Home = () => {
 	const [file, setFile] = React.useState(null);
 	const [progress, setProgress] = React.useState(0);
 	const [loading,setLoading] = React.useState(false) ;
+	const [data,setData] = React.useState(null) ;
 	const [isUploading, setIsUploading] = React.useState(false);
 	function onFileChange(e) {
 		setFile(e.target.files[0]);
@@ -27,7 +30,7 @@ const Home = () => {
 				setProgress((e.loaded / e.total) * 100);
 			}).then((data) => {
 			    setLoading(false)
-				console.log(data.data);
+				setData(data.data) ;
 			});
 		}
 	}
@@ -65,7 +68,20 @@ const Home = () => {
                         </div>
                     }
 				</Grid>
+				<Grid item xs={12}>
+					{
+						data &&
+						<SummaryContainer summary={data.summary}/>
+					}
+				</Grid>
+				<Grid item xs={12}>
+					{
+						data &&
+						<EntityList entities={data.entities}/>
+					}
+				</Grid>
 			</Grid>
+
 		</Container>
 	);
 };
