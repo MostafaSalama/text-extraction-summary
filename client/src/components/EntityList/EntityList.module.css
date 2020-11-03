@@ -1,0 +1,8 @@
+.mainList {
+    background-color: #fff;
+    margin-top: 30px;
+}
+.mainListItem {
+    border-bottom: 1px solid #666161;
+    padding: 10px;
+}
